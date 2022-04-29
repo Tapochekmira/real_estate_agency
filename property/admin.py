@@ -12,7 +12,7 @@ class FlatAdmin(admin.ModelAdmin):
         'construction_year',
         'town'
     )
-    list_editable = ('new_building',)
+    list_editable = ('new_building', )
 
 
 admin.site.register(Flat, FlatAdmin)
