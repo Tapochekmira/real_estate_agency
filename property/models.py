@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.contrib import admin
 from phonenumber_field.modelfields import PhoneNumberField
 
 
@@ -112,3 +113,6 @@ class Owner(models.Model):
         related_name="owners_flats",
         null=True,
     )
+
+    def __str__(self):
+        return self.owner
