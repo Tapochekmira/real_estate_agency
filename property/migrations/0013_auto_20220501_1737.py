@@ -14,7 +14,7 @@ def fill_flats_in_owner_model(apps, schema_editor):
                 'owner_pure_phone': flat.owner_pure_phone,
             }
         )
-        owner = owner[0]
+        owner, _ = owner
         owner.flats.set([flat])
         owner.save()
 
