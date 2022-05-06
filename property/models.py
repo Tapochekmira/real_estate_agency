@@ -83,7 +83,6 @@ class Complaint(models.Model):
         null=True
     )
     complaint_text = models.TextField(
-        null=True,
         blank=True,
         verbose_name='Текст жалобы'
     )
