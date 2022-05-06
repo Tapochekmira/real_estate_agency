@@ -58,7 +58,7 @@ class Flat(models.Model):
     liked_by = models.ManyToManyField(
         User,
         verbose_name='Кто лайкнул',
-        related_name="liked_posts",
+        related_name="liked_flats",
         null=True,
         blank=True,
     )
@@ -110,7 +110,7 @@ class Owner(models.Model):
     flats = models.ManyToManyField(
         Flat,
         verbose_name='Квартиры в собственности',
-        related_name="owners_flats",
+        related_name="flats_owners",
         null=True,
     )
 
