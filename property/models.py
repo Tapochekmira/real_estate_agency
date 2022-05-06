@@ -104,7 +104,8 @@ class Owner(models.Model):
     )
     owner_pure_phone = PhoneNumberField(
         blank=True,
-        default=''
+        null=True,
+        # default=''
     )
     flats = models.ManyToManyField(
         Flat,
