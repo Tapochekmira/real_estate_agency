@@ -6,7 +6,7 @@ from django.db import migrations
 
 def do_clear_number(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for flat in Flat.objects.all():
+    for flat in Flat.objects.all().iterator():
         bad_phone = flat.owners_phonenumber
         parsed_phone = phonenumbers.parse(
             bad_phone, 'RU'
@@ -19,7 +19,7 @@ def do_clear_number(apps, schema_editor):
 
 def move_backward(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for flat in Flat.objects.all():
+    for flat in Flat.objects.all().iterator():
         flat.owner_pure_phone = ''
         flat.save()
 
