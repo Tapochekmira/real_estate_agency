@@ -73,6 +73,7 @@ class Complaint(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Пользователь оставивший жалобу',
         blank=True,
+        related_name="users_complaints",
         null=True
     )
     flat = models.ForeignKey(
@@ -80,6 +81,7 @@ class Complaint(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Квартира, на которую пожаловались',
         blank=True,
+        related_name="complained_about_flat",
         null=True
     )
     complaint_text = models.TextField(
