@@ -73,7 +73,7 @@ class Complaint(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Пользователь оставивший жалобу',
         blank=True,
-        related_name="users_complaints",
+        related_name="complaints",
         null=True
     )
     flat = models.ForeignKey(
@@ -81,7 +81,7 @@ class Complaint(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Квартира, на которую пожаловались',
         blank=True,
-        related_name="complained_about_flat",
+        related_name="complaints",
         null=True
     )
     complaint_text = models.TextField(
@@ -112,7 +112,7 @@ class Owner(models.Model):
     flats = models.ManyToManyField(
         Flat,
         verbose_name='Квартиры в собственности',
-        related_name="flats_owners",
+        related_name="owners",
         null=True,
     )
 
