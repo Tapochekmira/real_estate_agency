@@ -7,14 +7,13 @@ def fill_flats_in_owner_model(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
     for flat in Flat.objects.all():
-        owner = Owner.objects.get_or_create(
+        owner, _ = Owner.objects.get_or_create(
             owner=flat.owner,
             owners_phonenumber=flat.owners_phonenumber,
             defaults={
                 'owner_pure_phone': flat.owner_pure_phone,
             }
         )
-        owner, _ = owner
         owner.flats.set([flat])
         owner.save()
 
